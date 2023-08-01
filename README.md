@@ -1,6 +1,6 @@
 # smoothmiao.github.io
--npm install
--hexo clean
--hexo generate
--git branch smoothmiao
--git add/push 
+-npm install<br>
+-hexo clean<br>
+-hexo generate<br>
+-git branch smoothmiao<br>
+-git add/push<br>
