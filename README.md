@@ -2,4 +2,4 @@
 -npm install<br>
 -hexo clean<br>
 -hexo generate<br>
--git add/push<br>
+-git add/commit/push<br>
