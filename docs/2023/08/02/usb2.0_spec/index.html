@@ -6,11 +6,15 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+  <meta name="description" content="1 USB规格简介 1.1 原动力(Motivation) A   电话和电脑互联(Connection of the PC to the telephone)    [电话(telephone)]是[通信(communication)]的代表，[电脑(PC)]是[计算(computing)]的代表，        他们的互联，也代表着计算和通信的融合，几乎所有人已经有这样的共识，这是下一代生产力">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/2023/08/02/usb2.0_spec/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1 USB规格简介 1.1 原动力(Motivation) A   电话和电脑互联(Connection of the PC to the telephone)    [电话(telephone)]是[通信(communication)]的代表，[电脑(PC)]是[计算(computing)]的代表，        他们的互联，也代表着计算和通信的融合，几乎所有人已经有这样的共识，这是下一代生产力">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-08-02T01:36:13.011Z">
+<meta property="article:modified_time" content="2023-08-02T06:22:53.254Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -71,9 +75,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-usb2.0_spec" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-usb2.0_spec" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/08/02/usb2.0_spec/" class="article-date">
   <time class="dt-published" datetime="2023-08-02T01:36:13.011Z" itemprop="datePublished">2023-08-02</time>
@@ -120,64 +122,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hello-world-smoothmiao" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/08/01/hello-world-smoothmiao/" class="article-date">
-  <time class="dt-published" datetime="2023-08-01T03:29:47.800Z" itemprop="datePublished">2023-08-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/08/01/hello-world-smoothmiao/">Hello World Smoothmiao</a>
-    </h1>
+    <a href="/2023/08/01/hello-world-smoothmiao/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World Smoothmiao</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>在Windows下，使用Hexo，部署GitPage，的经验分享(简易版).</p>
-<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><h3 id="安装nodejs和npm-nodejs自带"><a href="#安装nodejs和npm-nodejs自带" class="headerlink" title="安装nodejs和npm(nodejs自带)"></a>安装nodejs和npm(nodejs自带)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ https://nodejs.org/zh-cn/download</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ https://git-scm.com/downloads</span><br></pre></td></tr></table></figure>
-<p>这里省略git的配置，请参考网络上其他人的经验分享。</p>
-<h3 id="安装hexo，使用git工具-“Git-Bash-Here”"><a href="#安装hexo，使用git工具-“Git-Bash-Here”" class="headerlink" title="安装hexo，使用git工具 “Git Bash Here”"></a>安装hexo，使用git工具 “Git Bash Here”</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure>
-<p>这里不安装hexo-cli，在我这里容易出错，你要是不会出错可以尝试安装它</p>
-<h2 id="产生网站源代码和静态网页"><a href="#产生网站源代码和静态网页" class="headerlink" title="产生网站源代码和静态网页"></a>产生网站源代码和静态网页</h2><h3 id="使用Hexo，先修改一下-config-yml中public-dir后参数为docs，方便Gitpage部署"><a href="#使用Hexo，先修改一下-config-yml中public-dir后参数为docs，方便Gitpage部署" class="headerlink" title="使用Hexo，先修改一下_config.yml中public_dir后参数为docs，方便Gitpage部署"></a>使用Hexo，先修改一下_config.yml中public_dir后参数为docs，方便Gitpage部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &amp;&amp; npm install &amp;&amp; hexo generate</span><br></pre></td></tr></table></figure>
-
-<h3 id="提交除开node-modules文件夹的其他所有文件"><a href="#提交除开node-modules文件夹的其他所有文件" class="headerlink" title="提交除开node_modules文件夹的其他所有文件"></a>提交除开node_modules文件夹的其他所有文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add/commit/push</span><br></pre></td></tr></table></figure>
-
-<h2 id="Git-Page配置"><a href="#Git-Page配置" class="headerlink" title="Git Page配置"></a>Git Page配置</h2><p>找到Setting页的Pages项，将Build and deployment中的网站文件夹修改成docs，保存后，在Actions页pages-build-deployment项里重新build</p>
-<p>成功后，就可以打开你的网址查看网页，比如说</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ https://smoothmiao.github.io/</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/08/01/hello-world-smoothmiao/" data-id="clktceuqd0001d03w160c9x86" data-title="Hello World Smoothmiao" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
 
 
 </section>
