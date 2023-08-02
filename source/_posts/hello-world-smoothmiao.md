@@ -1,5 +1,7 @@
 ---
 title: Hello World Smoothmiao
+date: 2023.8.1
+tags: [GitPage, Hexo]
 ---
 在Windows下，使用Hexo，部署GitPage，的经验分享(简易版).
 
