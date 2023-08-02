@@ -3,7 +3,6 @@
 title: USB2.0规格
 date: 2023.8.2
 tags: USB2.0
-description: USB规格简介
 ---
 
 # 1 USB规格简介
