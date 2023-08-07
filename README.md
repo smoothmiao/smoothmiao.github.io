@@ -1,5 +1,8 @@
 # smoothmiao.github.io
--npm install<br>
--hexo clean<br>
--hexo generate<br>
--git add/commit/push<br>
+
+## my blog
+
+1. npm install
+1. hexo clean
+1. hexo generate
+1. git add/commit/push

@@ -58,7 +58,7 @@ USB2.0可以称为USB1.0的自然演变，在提供所需的带宽增加的同�
 - [双向(bi-directional)], 
 - [支持同步(isochronous)], 
 - [低成本(low-cost)], 
-- [动态可连接(dynamically attachable)]
+- [动态可连接(dynamically attachable)], 
 的[串行接口(serial interface)]
 
 ## 1.4 文档目的
@@ -104,11 +104,16 @@ USB2.0规范的采用者已经签署了USB2.0采用者协议，该协议使他�
 
 # 2 USB术语和缩写
 
+This chapter lists and defines terms and abbreviations used throughout this specification.
+
 ~~~
     ......
 ~~~
 
 # 3 USB的先验知识
+
+This chapter presents a brief description of the background of the Universal Serial Bus (USB), 
+including design goals, features of the bus, and existing technologies.
 
 ## 3.1 USB设计的目标
 USB被设计为PC架构扩展部分的行业标准，专注针对消费者和商业应用的PC架构的外设
@@ -173,7 +178,7 @@ The USB is a cable bus that supports data exchange between a host computer and a
 The attached peripherals share USB bandwidth through a host-scheduled, token-based protocol. 
 The bus allows peripherals to be attached, configured, used, and detached while the host and other peripherals are in operation.
 
-## 4.1 USB系统结构
+## 4.1 系统结构
 
 * USB系统的组成
     - A 连接，USB interconnect
@@ -186,9 +191,9 @@ The bus allows peripherals to be attached, configured, used, and detached while 
             The USB provides a shared interconnect. 
             Access to the interconnect is scheduled in order to support isochronous data transfers and to eliminate arbitration overhead.
     - B 设备，USB devices
-        + 细节见第6章
+        + 细节见第9章
     - C 主机，USB host
-        + 细节见第7章
+        + 细节见第10章
 
 ### 4.1.1 [总线模型(Bus Topology)]
 
@@ -220,10 +225,73 @@ USB连接设备和主机，USB的物理连接是一个分层的星形拓扑。�
 
 这里简述电气特性和机械特性，详细请参考第7和第6章
 
-* [电气特性(Electrical)]
-    - USB传输信号使用4根线
-    - 速度分为480/12/1.5 Mb/s
-    - 使用NRZI进行编码，通过SYNC来同步clock
-    - Vbus固定+5V，使用双绞线模型传输模拟信号
+![USB Cable](/image/USB/cable.png "Fig.4.2-1")
 
+* [电气特性(Electrical)]
+    - 速度
+        + 速度分为480/12/1.5 Mb/s
+        + host和hub提供这样的功能，hub和设备之间的低速和全速数据，可以在host和hub之间以高速数据传输，减少高速设备可用带宽的影响
+        + 
+    - 时钟
+        + 使用NRZI进行编码，通过SYNC来同步clock
+    - 电缆
+        + 使用VBUS和GND向设备供电，VBUS固定+5V
+        + 长度可变，最长可达几米
+    - 端口
+        + [偏置电压终端(biased terminations)]
+        + 检测连接和分离
+        + 可区分 高速/全速/低速 设备
 * [机械特性(Mechanical)]
+    - 力学指标见第6章
+    - USB传输信号使用4根导体，标准的双绞线信号对，和规格允许的电源对
+    - 所有设备具有上游连接，上下游不能机械的互换，以消除集线器上的非法环回连接
+    - 连接器需要四个点以支持4根线，并且包含 屏蔽外壳/坚固性/易于连接-分离
+
+## 4.3 电力供给
+
+* 与电力相关的内容由两方面构成，通过这两种特性，允许USB被设计成电力敏感的系统，比如基于电池的手提电脑
+    - 电力分配相关
+        + 主要解决，USB设备端，怎样更好的消耗主机提供的电力，的问题
+        + 完全依赖线缆上的电力的设备叫，  bus-powered devices，第11章会详细描述其架构
+        + 拥有可选择的电力来源的设备叫， self-powered devices
+    - 电力管理相关
+        + 主要解决，USB主机端，怎样更好的适应主机的电力系统，的问题
+        + USB主机可能有一套独立于USB软件的电力管理系统，USB系统软件通常要实现电力管理系统抛出的事件，比如挂起/激活
+        + 同样的，通常也会要求设备端实现，一些基于主机端的这些特性的功能
+
+## 4.4 总线协议
+
+* USB总线是轮询类型的，所有的传输都是由主机控制器启动的
+    - 大多数的事务(transaction)，涉及最多由3类包(packet)的组成，
+        + 一般，主机按照计划发出一个，带有描述这个事务的类型和方向，并带有指定设备地址以及端口编号信息的包，就表示事务的开始，我们称为令牌包(token packet)。
+        + 然后，设备根据地址选择自己以响应令牌包。
+        + 接着，会有一个数据包(data packet)被发出，设备发给主机还是主机发给设备，由令牌包中的信息决定。
+        + 其中，事务源会在传输结束时，发送一个0长度的数据包，表示数据的结束。
+        + 最后，事务目的地通常会在收到数据包后回应一个握手包(handshake packet)，来表示自己确实收下了数据，或者出现了其他状况。
+    - 主机和集线器之间的事务，可能会涉及4类包的组成，用于管理主机和全速/低速设备的通信
+    - 通常将主机上的源或目的地，和设备上的端点，之间的传输模型称为管道(pipe)，管道有两种类型
+        + 流(stream)， 他的结构由其他规格定义
+        + 消息(message)，他的结构由本规格定义
+            + 有一个默认的消息管道在设备上电之后就会存在，以便提供对设备的配置/状态/控制等信息的访问
+        + 管道常与 数据带宽/传输服务的类型/端点(endpoint)特性(比如方向性/缓冲大小) 等，密切相关
+        + 通常，在USB设备被配置好之后，我们就可以说管道建立已经完成
+        + 事务调度允许对流的管道进行流量控制。
+            + 这可以从硬件级别实现，比如通过返回NAK握手包来限制速率，来防止缓冲区溢出或不足，当NAK结束时，主机就可以在总线空闲时重试事务。
+            + 比如可以通过这样的方式实现摄像头自适应帧率的功能。
+            + 流量控制机制通过构建灵活的时间表，来适应异构流管道混合的并发服务，可以让多个流管道以不同的间隔和大小的数据包来进行服务。
+
+## 4.5 鲁棒性
+
+* 安全保障
+    - Signal integrity using differential drivers, receivers, and shielding
+    - CRC protection over control and data fields
+    - Detection of attach and detach and system-level configuration of resources
+    - Self-recovery in protocol, using timeouts for lost or corrupted packets
+    - Flow control for streaming data to ensure isochrony and hardware buffer management
+    - Data and control pipe constructs for ensuring independence from adverse interactions between functions
+* 错误侦测
+    - 
+* 错误控制
+    - 
+
+## 4.6 

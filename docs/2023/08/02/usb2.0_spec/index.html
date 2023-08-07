@@ -15,8 +15,9 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://smoothmiao.github.io/image/USB/application_space_taxonomy.png">
 <meta property="og:image" content="https://smoothmiao.github.io/image/USB/bus_topology.png">
+<meta property="og:image" content="https://smoothmiao.github.io/image/USB/cable.png">
 <meta property="article:published_time" content="2023-08-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-08-03T08:40:48.348Z">
+<meta property="article:modified_time" content="2023-08-07T10:33:32.032Z">
 <meta property="article:author" content="smoothmiao">
 <meta property="article:tag" content="USB2.0">
 <meta name="twitter:card" content="summary">
@@ -141,7 +142,7 @@
 <li>[双向(bi-directional)], </li>
 <li>[支持同步(isochronous)], </li>
 <li>[低成本(low-cost)], </li>
-<li>[动态可连接(dynamically attachable)]<br>的[串行接口(serial interface)]</li>
+<li>[动态可连接(dynamically attachable)],<br>的[串行接口(serial interface)]</li>
 </ul>
 <h2 id="1-4-文档目的"><a href="#1-4-文档目的" class="headerlink" title="1.4 文档目的"></a>1.4 文档目的</h2><ul>
 <li>此规格的内容<ul>
@@ -189,9 +190,11 @@
 </ul>
 </li>
 </ul>
-<h1 id="2-USB术语和缩写"><a href="#2-USB术语和缩写" class="headerlink" title="2 USB术语和缩写"></a>2 USB术语和缩写</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">......</span><br></pre></td></tr></table></figure>
+<h1 id="2-USB术语和缩写"><a href="#2-USB术语和缩写" class="headerlink" title="2 USB术语和缩写"></a>2 USB术语和缩写</h1><p>This chapter lists and defines terms and abbreviations used throughout this specification.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">......</span><br></pre></td></tr></table></figure>
 
-<h1 id="3-USB的先验知识"><a href="#3-USB的先验知识" class="headerlink" title="3 USB的先验知识"></a>3 USB的先验知识</h1><h2 id="3-1-USB设计的目标"><a href="#3-1-USB设计的目标" class="headerlink" title="3.1 USB设计的目标"></a>3.1 USB设计的目标</h2><p>USB被设计为PC架构扩展部分的行业标准，专注针对消费者和商业应用的PC架构的外设</p>
+<h1 id="3-USB的先验知识"><a href="#3-USB的先验知识" class="headerlink" title="3 USB的先验知识"></a>3 USB的先验知识</h1><p>This chapter presents a brief description of the background of the Universal Serial Bus (USB),<br>including design goals, features of the bus, and existing technologies.</p>
+<h2 id="3-1-USB设计的目标"><a href="#3-1-USB设计的目标" class="headerlink" title="3.1 USB设计的目标"></a>3.1 USB设计的目标</h2><p>USB被设计为PC架构扩展部分的行业标准，专注针对消费者和商业应用的PC架构的外设</p>
 <ul>
 <li>Ease-of-use for PC peripheral expansion.</li>
 <li>Low-cost solution that supports transfer rates up to 480 Mb&#x2F;s.</li>
@@ -260,7 +263,7 @@
 </li>
 </ul>
 <h1 id="4-USB的结构综述"><a href="#4-USB的结构综述" class="headerlink" title="4 USB的结构综述"></a>4 USB的结构综述</h1><p>This chapter presents an overview of the Universal Serial Bus (USB) architecture and key concepts.<br>The USB is a cable bus that supports data exchange between a host computer and a wide range of simultaneously accessible peripherals.<br>The attached peripherals share USB bandwidth through a host-scheduled, token-based protocol.<br>The bus allows peripherals to be attached, configured, used, and detached while the host and other peripherals are in operation.</p>
-<h2 id="4-1-USB系统结构"><a href="#4-1-USB系统结构" class="headerlink" title="4.1 USB系统结构"></a>4.1 USB系统结构</h2><ul>
+<h2 id="4-1-系统结构"><a href="#4-1-系统结构" class="headerlink" title="4.1 系统结构"></a>4.1 系统结构</h2><ul>
 <li>USB系统的组成<ul>
 <li>A 连接，USB interconnect<ul>
 <li>[总线模型(Bus Topology)]：设备和主机的连接模型.</li>
@@ -270,11 +273,11 @@
 </ul>
 </li>
 <li>B 设备，USB devices<ul>
-<li>细节见第6章</li>
+<li>细节见第9章</li>
 </ul>
 </li>
 <li>C 主机，USB host<ul>
-<li>细节见第7章</li>
+<li>细节见第10章</li>
 </ul>
 </li>
 </ul>
@@ -313,23 +316,105 @@
 </li>
 </ul>
 <h2 id="4-2-物理接口"><a href="#4-2-物理接口" class="headerlink" title="4.2 物理接口"></a>4.2 物理接口</h2><p>这里简述电气特性和机械特性，详细请参考第7和第6章</p>
+<p><img src="/image/USB/cable.png" alt="USB Cable" title="Fig.4.2-1"></p>
 <ul>
-<li><p>[电气特性(Electrical)]</p>
-<ul>
-<li>USB传输信号使用4根线</li>
+<li>[电气特性(Electrical)]<ul>
+<li>速度<ul>
 <li>速度分为480&#x2F;12&#x2F;1.5 Mb&#x2F;s</li>
+<li>host和hub提供这样的功能，hub和设备之间的低速和全速数据，可以在host和hub之间以高速数据传输，减少高速设备可用带宽的影响</li>
+<li></li>
+</ul>
+</li>
+<li>时钟<ul>
 <li>使用NRZI进行编码，通过SYNC来同步clock</li>
-<li>Vbus固定+5V，使用双绞线模型传输模拟信号</li>
 </ul>
 </li>
-<li><p>[机械特性(Mechanical)]</p>
+<li>电缆<ul>
+<li>使用VBUS和GND向设备供电，VBUS固定+5V</li>
+<li>长度可变，最长可达几米</li>
+</ul>
+</li>
+<li>端口<ul>
+<li>[偏置电压终端(biased terminations)]</li>
+<li>检测连接和分离</li>
+<li>可区分 高速&#x2F;全速&#x2F;低速 设备</li>
+</ul>
 </li>
 </ul>
-
+</li>
+<li>[机械特性(Mechanical)]<ul>
+<li>力学指标见第6章</li>
+<li>USB传输信号使用4根导体，标准的双绞线信号对，和规格允许的电源对</li>
+<li>所有设备具有上游连接，上下游不能机械的互换，以消除集线器上的非法环回连接</li>
+<li>连接器需要四个点以支持4根线，并且包含 屏蔽外壳&#x2F;坚固性&#x2F;易于连接-分离</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-3-电力供给"><a href="#4-3-电力供给" class="headerlink" title="4.3 电力供给"></a>4.3 电力供给</h2><ul>
+<li>与电力相关的内容由两方面构成，通过这两种特性，允许USB被设计成电力敏感的系统，比如基于电池的手提电脑<ul>
+<li>电力分配相关<ul>
+<li>主要解决，USB设备端，怎样更好的消耗主机提供的电力，的问题</li>
+<li>完全依赖线缆上的电力的设备叫，  bus-powered devices，第11章会详细描述其架构</li>
+<li>拥有可选择的电力来源的设备叫， self-powered devices</li>
+</ul>
+</li>
+<li>电力管理相关<ul>
+<li>主要解决，USB主机端，怎样更好的适应主机的电力系统，的问题</li>
+<li>USB主机可能有一套独立于USB软件的电力管理系统，USB系统软件通常要实现电力管理系统抛出的事件，比如挂起&#x2F;激活</li>
+<li>同样的，通常也会要求设备端实现，一些基于主机端的这些特性的功能</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-4-总线协议"><a href="#4-4-总线协议" class="headerlink" title="4.4 总线协议"></a>4.4 总线协议</h2><ul>
+<li>USB总线是轮询类型的，所有的传输都是由主机控制器启动的<ul>
+<li>大多数的事务(transaction)，涉及最多由3类包(packet)的组成，<ul>
+<li>一般，主机按照计划发出一个，带有描述这个事务的类型和方向，并带有指定设备地址以及端口编号信息的包，就表示事务的开始，我们称为令牌包(token packet)。</li>
+<li>然后，设备根据地址选择自己以响应令牌包。</li>
+<li>接着，会有一个数据包(data packet)被发出，设备发给主机还是主机发给设备，由令牌包中的信息决定。</li>
+<li>其中，事务源会在传输结束时，发送一个0长度的数据包，表示数据的结束。</li>
+<li>最后，事务目的地通常会在收到数据包后回应一个握手包(handshake packet)，来表示自己确实收下了数据，或者出现了其他状况。</li>
+</ul>
+</li>
+<li>主机和集线器之间的事务，可能会涉及4类包的组成，用于管理主机和全速&#x2F;低速设备的通信</li>
+<li>通常将主机上的源或目的地，和设备上的端点，之间的传输模型称为管道(pipe)，管道有两种类型<ul>
+<li>流(stream)， 他的结构由其他规格定义</li>
+<li>消息(message)，他的结构由本规格定义<ul>
+<li>有一个默认的消息管道在设备上电之后就会存在，以便提供对设备的配置&#x2F;状态&#x2F;控制等信息的访问</li>
+</ul>
+</li>
+<li>管道常与 数据带宽&#x2F;传输服务的类型&#x2F;端点(endpoint)特性(比如方向性&#x2F;缓冲大小) 等，密切相关</li>
+<li>通常，在USB设备被配置好之后，我们就可以说管道建立已经完成</li>
+<li>事务调度允许对流的管道进行流量控制。<ul>
+<li>这可以从硬件级别实现，比如通过返回NAK握手包来限制速率，来防止缓冲区溢出或不足，当NAK结束时，主机就可以在总线空闲时重试事务。</li>
+<li>比如可以通过这样的方式实现摄像头自适应帧率的功能。</li>
+<li>流量控制机制通过构建灵活的时间表，来适应异构流管道混合的并发服务，可以让多个流管道以不同的间隔和大小的数据包来进行服务。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-5-鲁棒性"><a href="#4-5-鲁棒性" class="headerlink" title="4.5 鲁棒性"></a>4.5 鲁棒性</h2><ul>
+<li>安全保障<ul>
+<li>Signal integrity using differential drivers, receivers, and shielding</li>
+<li>CRC protection over control and data fields</li>
+<li>Detection of attach and detach and system-level configuration of resources</li>
+<li>Self-recovery in protocol, using timeouts for lost or corrupted packets</li>
+<li>Flow control for streaming data to ensure isochrony and hardware buffer management</li>
+<li>Data and control pipe constructs for ensuring independence from adverse interactions between functions</li>
+</ul>
+</li>
+<li><h2 id="错误侦测"><a href="#错误侦测" class="headerlink" title="错误侦测"></a>错误侦测</h2></li>
+<li><h2 id="错误控制"><a href="#错误控制" class="headerlink" title="错误控制"></a>错误控制</h2></li>
+</ul>
+<h2 id="4-6"><a href="#4-6" class="headerlink" title="4.6"></a>4.6</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://smoothmiao.github.io/2023/08/02/usb2.0_spec/" data-id="clkuwqk0i0005m83wflro0zm6" data-title="USB2.0基础规格" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://smoothmiao.github.io/2023/08/02/usb2.0_spec/" data-id="cll0qisp500005g3w6kxx2pfq" data-title="USB2.0基础规格" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
