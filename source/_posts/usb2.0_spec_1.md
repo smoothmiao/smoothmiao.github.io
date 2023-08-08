@@ -1,10 +1,10 @@
 ---
-title: USB2.0基础规格
+title: USB2.0基础规格(一)
 date: 2023.8.2
 tags: [USB2.0]
 ---
 
-USB2.0基础规格的学习记录
+USB2.0基础规格的学习记录，标准规格的第1-4章。
 
 <!-- more -->
 
@@ -282,9 +282,9 @@ USB连接设备和主机，USB的物理连接是一个分层的星形拓扑。�
             + 比如可以通过这样的方式实现摄像头自适应帧率的功能。
             + 流量控制机制通过构建灵活的时间表，来适应异构流管道混合的并发服务，可以让多个流管道以不同的间隔和大小的数据包来进行服务。
 
-## 4.5 鲁棒性
+## 4.5 鲁棒性能
 
-* 安全保障
+* 关于鲁棒性的几个方面
     - Signal integrity using differential drivers, receivers, and shielding
     - CRC protection over control and data fields
     - Detection of attach and detach and system-level configuration of resources
@@ -294,6 +294,125 @@ USB连接设备和主机，USB的物理连接是一个分层的星形拓扑。�
 * 错误侦测
     - 
 * 错误控制
+    - 失败自动重传三次
     - 
 
-## 4.6 
+## 4.6 系统配置
+
+* USB系统支持热插拔，也就是说，系统软件必须适应总线的物理拓扑结构的动态变化
+    - 插入设备
+        + 设备总是插入到某个端口上，集线器会记录端口的插入情况，总线查询到这些变化后，再并通过控制管道的默认地址，来使能这些端口
+        + 主机会分配一个独一无二的地址给设备，并会重新侦测他是一个集线器还是一个功能的提供者，并通过这个地址和设备上的端点0建立一个控制管道，以传输信息
+    - 移除设备
+        + 如果设备被移除后，首先集线器要标记当前端口的状态，在主机查询到移除的状态后，关闭当前的端口
+        + 如果集线器被移除，主机会移除此集线器下的所有端口和下层的所有设备
+    - 总线枚举
+        + 总线枚举说的就是总线上设备插入后的一系列活动
+
+## 4.7 数据流型(Data Flow Types)
+
+The USB supports functional data and control exchange between the USB host and a USB device as a set of either uni-directional or bi-directional pipes. 
+USB data transfers take place between host software and a particular endpoint on a USB device. 
+Such associations between the host software and a USB device endpoint are called pipes. 
+In general, data movement though one pipe is independent from the data flow in any other pipe. A given USB device may have many pipes. 
+As an example, a given USB device could have an endpoint that supports a pipe for transporting data to the USB device 
+and another endpoint that supports a pipe for transporting data from the USB device.
+
+* 基础的传输类型有以下几种
+    - 控制信息传输(Control Transfers)
+        + Used to configure a device at attach time and can be used for other device-specific purposes, including control of other pipes on the device.
+        + 
+    - 批量数据传输(Bulk Data Transfers)
+        + Generated or consumed in relatively large and bursty quantities and have wide dynamic latitude in transmission constraints.
+        + 
+    - 中断数据传输(Interrupt Data Transfers)
+        + Used for timely but reliable delivery of data, for example, characters or coordinates with human-perceptible echo or feedback response characteristics.
+        + 
+    - 同步数据传输(Isochronous Data Transfers)
+        + Occupy a pre-negotiated amount of USB bandwidth with a pre-negotiated delivery latency. (Also called streaming real time transfers).
+        + 
+    - 一个管道在被配置后，只能是以上几种的一种传输方式
+    - 分配数据带宽(Allocating USB Bandwidth)
+        + 带宽总是和管道相关联的，只要管道被建立，就会给它分配带宽
+        + 设备通常需要提供一些缓冲区给数据，缓冲区越大，所需要的带宽就越大
+        + USB架构的目标会确保缓冲引起的硬件延迟限制要在几毫秒之内
+        + USB的带宽容量可以在许多不同的数据流之间分配。这允许广泛的设备连接到USB。此外，可以同时支持具有宽动态范围的不同设备比特率
+
+## 4.8 设备简述
+
+USB devices are divided into device classes such as hub, human interface, printer, imaging, or mass storage device. 
+The hub device class indicates a specially designated USB device that provides additional USB attachment points (refer to Chapter 11). 
+USB devices are required to carry information for self-identification and generic configuration. 
+They are also required at all times to display behavior consistent with defined USB device states.
+
+* 设备特征
+    - 所有的设备在插入检测(attached)和被枚举好(enumerated)之后，都会被分配一个地址
+    - 每个设备都可以支持多个管道，数量取决于主机会有多少种与设备的通信模型
+    - 所有的设备必须支持能与端点0建立管道的通信，以及实现一个通用的的状态机模型来支持控制传输
+    - 端点0上的控制信息，也称为请求(request)，分为以下几类
+        + 标准(standard)
+            + 标准请求，具体详见第9章
+        + 类(class)
+            + 类请求，具体与设备实现的功能相关
+        + 厂商(USB Vendor)
+            + 厂商请求由厂商定义，本规格不定义
+* 设备描述
+    - 有两种主要版本的设备类存在，集线器和功能，只有hub可以提供让其他设备插入的端口，function只提供一些能力(capabilities)给主机
+    - hubs
+    ~~~
+        Hubs are a key element in the plug-and-play architecture of the USB. Figure 4-3 shows a typical hub. Hubs
+        serve to simplify USB connectivity from the user’s perspective and provide robustness at relatively low cost
+        and complexity.
+        Hubs are wiring concentrators and enable the multiple attachment characteristics of the USB. Attachment
+        points are referred to as ports. Each hub converts a single attachment point into multiple attachment points.
+        The architecture supports concatenation of multiple hubs.
+        The upstream port of a hub connects the hub towards the host. Each of the downstream ports of a hub
+        allows connection to another hub or function. Hubs can detect attach and detach at each downstream port
+        and enable the distribution of power to downstream devices. Each downstream port can be individually
+        enabled and attached to either high-, full- or low-speed devices.
+        A USB 2.0 hub consists of three portions: the Hub Controller, the Hub Repeater, and the Transaction
+        Translator. The Hub Repeater is a protocol-controlled switch between the upstream port and downstream
+        ports. It also has hardware support for reset and suspend/resume signaling. The Host Controller provides
+        the communication to/from the host. Hub-specific status and control commands permit the host to
+        configure a hub and to monitor and control its ports. The Transaction Translator provides the mechanisms
+        that support full-/low-speed devices behind the hub, while transmitting all device data between the host and
+        the hub at high-speed.
+    ~~~
+    - functions
+    ~~~
+        A function is a USB device that is able to transmit or receive data or control information over the bus. A
+        function is typically implemented as a separate peripheral device with a cable that plugs into a port on a
+        hub. However, a physical package may implement multiple functions and an embedded hub with a single
+        USB cable. This is known as a compound device. A compound device appears to the host as a hub with
+        one or more non-removable USB devices.
+        Each function contains configuration information that describes its capabilities and resource requirements.
+        Before a function can be used, it must be configured by the host. This configuration includes allocating
+        USB bandwidth and selecting function-specific configuration options.
+        Examples of functions include the following:
+        • A human interface device such as a mouse, keyboard, tablet, or game controller
+        • An imaging device such as a scanner, printer, or camera
+        • A mass storage device such as a CD-ROM drive, floppy drive, or DVD drive
+    ~~~
+
+## 4.9 主机
+
+The USB host interacts with USB devices through the Host Controller. The host is responsible for the following:
+- Detecting the attachment and removal of USB devices
+- Managing control flow between the host and USB devices
+- Managing data flow between the host and USB devices
+- Collecting status and activity statistics
+- Providing power to attached USB devices
+The USB System Software on the host manages interactions between USB devices and host-based device software. 
+There are five areas of interactions between the USB System Software and device software:
+- Device enumeration and configuration
+- Isochronous data transfers
+- Asynchronous data transfers
+- Power management
+- Device and bus management information
+
+## 4.10 Architectural Extensions
+
+The USB architecture comprehends extensibility at the interface between the Host Controller Driver and USB Driver. 
+Implementations with multiple Host Controllers, and associated Host Controller Drivers, are possible.
+
+(未完待续...)

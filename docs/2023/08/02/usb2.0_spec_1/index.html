@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   
   
-  <title>USB2.0基础规格 | Smoothmiao</title>
+  <title>USB2.0基础规格(一) | Smoothmiao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="USB2.0基础规格的学习记录">
+  <meta name="description" content="USB2.0基础规格的学习记录，标准规格的第1-4章。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="USB2.0基础规格">
-<meta property="og:url" content="https://smoothmiao.github.io/2023/08/02/usb2.0_spec/index.html">
+<meta property="og:title" content="USB2.0基础规格(一)">
+<meta property="og:url" content="https://smoothmiao.github.io/2023/08/02/usb2.0_spec_1/index.html">
 <meta property="og:site_name" content="Smoothmiao">
-<meta property="og:description" content="USB2.0基础规格的学习记录">
+<meta property="og:description" content="USB2.0基础规格的学习记录，标准规格的第1-4章。">
 <meta property="og:locale">
 <meta property="og:image" content="https://smoothmiao.github.io/image/human_tool/human_tool.png">
 <meta property="og:image" content="https://smoothmiao.github.io/image/USB/application_space_taxonomy.png">
 <meta property="og:image" content="https://smoothmiao.github.io/image/USB/bus_topology.png">
 <meta property="og:image" content="https://smoothmiao.github.io/image/USB/cable.png">
 <meta property="article:published_time" content="2023-08-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-08-08T03:25:12.327Z">
+<meta property="article:modified_time" content="2023-08-08T07:23:48.290Z">
 <meta property="article:author" content="smoothmiao">
 <meta property="article:tag" content="USB2.0">
 <meta name="twitter:card" content="summary">
@@ -85,9 +85,9 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-usb2.0_spec" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-usb2.0_spec_1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2023/08/02/usb2.0_spec/" class="article-date">
+    <a href="/2023/08/02/usb2.0_spec_1/" class="article-date">
   <time class="dt-published" datetime="2023-08-01T16:00:00.000Z" itemprop="datePublished">2023-08-02</time>
 </a>
     
@@ -99,7 +99,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      USB2.0基础规格
+      USB2.0基础规格(一)
     </h1>
   
 
@@ -107,7 +107,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>USB2.0基础规格的学习记录</p>
+        <p>USB2.0基础规格的学习记录，标准规格的第1-4章。</p>
 <span id="more"></span>
 
 <h1 id="1-USB规格的简介"><a href="#1-USB规格的简介" class="headerlink" title="1 USB规格的简介"></a>1 USB规格的简介</h1><h2 id="1-1-原动力-Motivation"><a href="#1-1-原动力-Motivation" class="headerlink" title="1.1 原动力(Motivation)"></a>1.1 原动力(Motivation)</h2><h3 id="A-电话和电脑互联-Connection-of-the-PC-to-the-telephone"><a href="#A-电话和电脑互联-Connection-of-the-PC-to-the-telephone" class="headerlink" title="A 电话和电脑互联(Connection of the PC to the telephone)"></a>A 电话和电脑互联(Connection of the PC to the telephone)</h3><ul>
@@ -399,8 +399,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="4-5-鲁棒性"><a href="#4-5-鲁棒性" class="headerlink" title="4.5 鲁棒性"></a>4.5 鲁棒性</h2><ul>
-<li>安全保障<ul>
+<h2 id="4-5-鲁棒性能"><a href="#4-5-鲁棒性能" class="headerlink" title="4.5 鲁棒性能"></a>4.5 鲁棒性能</h2><ul>
+<li>关于鲁棒性的几个方面<ul>
 <li>Signal integrity using differential drivers, receivers, and shielding</li>
 <li>CRC protection over control and data fields</li>
 <li>Detection of attach and detach and system-level configuration of resources</li>
@@ -410,13 +410,111 @@
 </ul>
 </li>
 <li><h2 id="错误侦测"><a href="#错误侦测" class="headerlink" title="错误侦测"></a>错误侦测</h2></li>
-<li><h2 id="错误控制"><a href="#错误控制" class="headerlink" title="错误控制"></a>错误控制</h2></li>
+<li><h2 id="错误控制-失败自动重传三次"><a href="#错误控制-失败自动重传三次" class="headerlink" title="错误控制  - 失败自动重传三次"></a>错误控制<br>  - 失败自动重传三次</h2></li>
 </ul>
-<h2 id="4-6"><a href="#4-6" class="headerlink" title="4.6"></a>4.6</h2>
+<h2 id="4-6-系统配置"><a href="#4-6-系统配置" class="headerlink" title="4.6 系统配置"></a>4.6 系统配置</h2><ul>
+<li>USB系统支持热插拔，也就是说，系统软件必须适应总线的物理拓扑结构的动态变化<ul>
+<li>插入设备<ul>
+<li>设备总是插入到某个端口上，集线器会记录端口的插入情况，总线查询到这些变化后，再并通过控制管道的默认地址，来使能这些端口</li>
+<li>主机会分配一个独一无二的地址给设备，并会重新侦测他是一个集线器还是一个功能的提供者，并通过这个地址和设备上的端点0建立一个控制管道，以传输信息</li>
+</ul>
+</li>
+<li>移除设备<ul>
+<li>如果设备被移除后，首先集线器要标记当前端口的状态，在主机查询到移除的状态后，关闭当前的端口</li>
+<li>如果集线器被移除，主机会移除此集线器下的所有端口和下层的所有设备</li>
+</ul>
+</li>
+<li>总线枚举<ul>
+<li>总线枚举说的就是总线上设备插入后的一系列活动</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-7-数据流型-Data-Flow-Types"><a href="#4-7-数据流型-Data-Flow-Types" class="headerlink" title="4.7 数据流型(Data Flow Types)"></a>4.7 数据流型(Data Flow Types)</h2><p>The USB supports functional data and control exchange between the USB host and a USB device as a set of either uni-directional or bi-directional pipes.<br>USB data transfers take place between host software and a particular endpoint on a USB device.<br>Such associations between the host software and a USB device endpoint are called pipes.<br>In general, data movement though one pipe is independent from the data flow in any other pipe. A given USB device may have many pipes.<br>As an example, a given USB device could have an endpoint that supports a pipe for transporting data to the USB device<br>and another endpoint that supports a pipe for transporting data from the USB device.</p>
+<ul>
+<li>基础的传输类型有以下几种<ul>
+<li>控制信息传输(Control Transfers)<ul>
+<li>Used to configure a device at attach time and can be used for other device-specific purposes, including control of other pipes on the device.</li>
+<li></li>
+</ul>
+</li>
+<li>批量数据传输(Bulk Data Transfers)<ul>
+<li>Generated or consumed in relatively large and bursty quantities and have wide dynamic latitude in transmission constraints.</li>
+<li></li>
+</ul>
+</li>
+<li>中断数据传输(Interrupt Data Transfers)<ul>
+<li>Used for timely but reliable delivery of data, for example, characters or coordinates with human-perceptible echo or feedback response characteristics.</li>
+<li></li>
+</ul>
+</li>
+<li>同步数据传输(Isochronous Data Transfers)<ul>
+<li>Occupy a pre-negotiated amount of USB bandwidth with a pre-negotiated delivery latency. (Also called streaming real time transfers).</li>
+<li></li>
+</ul>
+</li>
+<li>一个管道在被配置后，只能是以上几种的一种传输方式</li>
+<li>分配数据带宽(Allocating USB Bandwidth)<ul>
+<li>带宽总是和管道相关联的，只要管道被建立，就会给它分配带宽</li>
+<li>设备通常需要提供一些缓冲区给数据，缓冲区越大，所需要的带宽就越大</li>
+<li>USB架构的目标会确保缓冲引起的硬件延迟限制要在几毫秒之内</li>
+<li>USB的带宽容量可以在许多不同的数据流之间分配。这允许广泛的设备连接到USB。此外，可以同时支持具有宽动态范围的不同设备比特率</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-8-设备简述"><a href="#4-8-设备简述" class="headerlink" title="4.8 设备简述"></a>4.8 设备简述</h2><p>USB devices are divided into device classes such as hub, human interface, printer, imaging, or mass storage device.<br>The hub device class indicates a specially designated USB device that provides additional USB attachment points (refer to Chapter 11).<br>USB devices are required to carry information for self-identification and generic configuration.<br>They are also required at all times to display behavior consistent with defined USB device states.</p>
+<ul>
+<li>设备特征<ul>
+<li>所有的设备在插入检测(attached)和被枚举好(enumerated)之后，都会被分配一个地址</li>
+<li>每个设备都可以支持多个管道，数量取决于主机会有多少种与设备的通信模型</li>
+<li>所有的设备必须支持能与端点0建立管道的通信，以及实现一个通用的的状态机模型来支持控制传输</li>
+<li>端点0上的控制信息，也称为请求(request)，分为以下几类<ul>
+<li>标准(standard)<ul>
+<li>标准请求，具体详见第9章</li>
+</ul>
+</li>
+<li>类(class)<ul>
+<li>类请求，具体与设备实现的功能相关</li>
+</ul>
+</li>
+<li>厂商(USB Vendor)<ul>
+<li>厂商请求由厂商定义，本规格不定义</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>设备描述<ul>
+<li>有两种主要版本的设备类存在，集线器和功能，只有hub可以提供让其他设备插入的端口，function只提供一些能力(capabilities)给主机</li>
+<li>hubs  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Hubs are a key element in the plug-and-play architecture of the USB. Figure 4-3 shows a typical hub. Hubs</span><br><span class="line">serve to simplify USB connectivity from the user’s perspective and provide robustness at relatively low cost</span><br><span class="line">and complexity.</span><br><span class="line">Hubs are wiring concentrators and enable the multiple attachment characteristics of the USB. Attachment</span><br><span class="line">points are referred to as ports. Each hub converts a single attachment point into multiple attachment points.</span><br><span class="line">The architecture supports concatenation of multiple hubs.</span><br><span class="line">The upstream port of a hub connects the hub towards the host. Each of the downstream ports of a hub</span><br><span class="line">allows connection to another hub or function. Hubs can detect attach and detach at each downstream port</span><br><span class="line">and enable the distribution of power to downstream devices. Each downstream port can be individually</span><br><span class="line">enabled and attached to either high-, full- or low-speed devices.</span><br><span class="line">A USB 2.0 hub consists of three portions: the Hub Controller, the Hub Repeater, and the Transaction</span><br><span class="line">Translator. The Hub Repeater is a protocol-controlled switch between the upstream port and downstream</span><br><span class="line">ports. It also has hardware support for reset and suspend/resume signaling. The Host Controller provides</span><br><span class="line">the communication to/from the host. Hub-specific status and control commands permit the host to</span><br><span class="line">configure a hub and to monitor and control its ports. The Transaction Translator provides the mechanisms</span><br><span class="line">that support full-/low-speed devices behind the hub, while transmitting all device data between the host and</span><br><span class="line">the hub at high-speed.</span><br></pre></td></tr></table></figure></li>
+<li>functions  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">A function is a USB device that is able to transmit or receive data or control information over the bus. A</span><br><span class="line">function is typically implemented as a separate peripheral device with a cable that plugs into a port on a</span><br><span class="line">hub. However, a physical package may implement multiple functions and an embedded hub with a single</span><br><span class="line">USB cable. This is known as a compound device. A compound device appears to the host as a hub with</span><br><span class="line">one or more non-removable USB devices.</span><br><span class="line">Each function contains configuration information that describes its capabilities and resource requirements.</span><br><span class="line">Before a function can be used, it must be configured by the host. This configuration includes allocating</span><br><span class="line">USB bandwidth and selecting function-specific configuration options.</span><br><span class="line">Examples of functions include the following:</span><br><span class="line">• A human interface device such as a mouse, keyboard, tablet, or game controller</span><br><span class="line">• An imaging device such as a scanner, printer, or camera</span><br><span class="line">• A mass storage device such as a CD-ROM drive, floppy drive, or DVD drive</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="4-9-主机"><a href="#4-9-主机" class="headerlink" title="4.9 主机"></a>4.9 主机</h2><p>The USB host interacts with USB devices through the Host Controller. The host is responsible for the following:</p>
+<ul>
+<li>Detecting the attachment and removal of USB devices</li>
+<li>Managing control flow between the host and USB devices</li>
+<li>Managing data flow between the host and USB devices</li>
+<li>Collecting status and activity statistics</li>
+<li>Providing power to attached USB devices<br>The USB System Software on the host manages interactions between USB devices and host-based device software.<br>There are five areas of interactions between the USB System Software and device software:</li>
+<li>Device enumeration and configuration</li>
+<li>Isochronous data transfers</li>
+<li>Asynchronous data transfers</li>
+<li>Power management</li>
+<li>Device and bus management information</li>
+</ul>
+<h2 id="4-10-Architectural-Extensions"><a href="#4-10-Architectural-Extensions" class="headerlink" title="4.10 Architectural Extensions"></a>4.10 Architectural Extensions</h2><p>The USB architecture comprehends extensibility at the interface between the Host Controller Driver and USB Driver.<br>Implementations with multiple Host Controllers, and associated Host Controller Drivers, are possible.</p>
+<p>(未完待续…)</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://smoothmiao.github.io/2023/08/02/usb2.0_spec/" data-id="cll1qvd9y0001sk3wgg3gcbir" data-title="USB2.0基础规格" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://smoothmiao.github.io/2023/08/02/usb2.0_spec_1/" data-id="cll1zdn400009to3w90v7eere" data-title="USB2.0基础规格(一)" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -428,11 +526,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2023/08/08/ssh/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/08/08/usb2.0_spec_2/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Neuer</strong>
       <div class="article-nav-title">
         
-          ssh
+          USB2.0基础规格(二)
         
       </div>
     </a>
@@ -470,7 +568,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/GitPage/" style="font-size: 10px;">GitPage</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/USB2-0/" style="font-size: 10px;">USB2.0</a>
+      <a href="/tags/GitPage/" style="font-size: 10px;">GitPage</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/USB2-0/" style="font-size: 20px;">USB2.0</a>
     </div>
   </div>
 
@@ -496,7 +594,11 @@
           </li>
         
           <li>
-            <a href="/2023/08/02/usb2.0_spec/">USB2.0基础规格</a>
+            <a href="/2023/08/08/usb2.0_spec_2/">USB2.0基础规格(二)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/08/02/usb2.0_spec_1/">USB2.0基础规格(一)</a>
           </li>
         
           <li>
