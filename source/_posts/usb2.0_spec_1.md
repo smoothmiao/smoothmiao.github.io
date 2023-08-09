@@ -14,10 +14,10 @@ USB2.0基础规格的学习记录，标准规格的第1-4章。
 
 ### A 电话和电脑互联(Connection of the PC to the telephone)
 
-* [电话(telephone)]是[通信(communication)]的代表，[电脑(PC)]是[计算(computing)]的代表，
+*  `[电话(telephone)]`是`[通信(communication)]`的代表，`[电脑(PC)]`是`[计算(computing)]`的代表，
     - 他们的互联，也代表着计算和通信的融合，几乎所有人已经有这样的共识，这是下一代生产力应用，工作的基础。而从USB被广泛使用的今天来说，这无疑被证明是正确的。
 * 从一方面来说，
-    - [面向人类(human-oriented)]的数据，和[面向机器(machine-oriented)]的数据，他们的交互，依赖的是[无处不在(ubiquitous)]的[便宜(cheap)]的连接。
+    - `[面向人类(human-oriented)]`的数据，和`[面向机器(machine-oriented)]`的数据，他们的交互，依赖的是`[无处不在(ubiquitous)]`的`[便宜(cheap)]`的连接。
 * 另一方面来说，
     - 他们早期的发展是相互独立的，并且可以预想，以后也会独立发展，隔绝相关性来说，对双方都有好处，而关联，可以交给融合来发展。
 * 于是USB应运而生。
@@ -34,8 +34,8 @@ USB2.0基础规格的学习记录，标准规格的第1-4章。
 相较于其他连接方式，对于更广泛的部署来说，PC端配置的缺少灵活性，
 已经被公认为是[阿喀琉斯之踵(Achilles’ heel, 致命缺点)]，
 整合用户友好的界面和软硬件之后，新一代的总线(USB2.0)架构，
-可以使得电脑端减少[迷惑性(confrontational)]并且易于被配置。
-同时，站在用户的视角上看，有很多[接口(interfaces)]，并不需要热插拔的属性，比如PC的I/O接口，
+可以使得电脑端减少`[迷惑性(confrontational)]`并且易于被配置。
+同时，站在用户的视角上看，有很多`[接口(interfaces)]`，并不需要热插拔的属性，比如PC的I/O接口，
 如串口/并口、键盘/鼠标/操纵杆接口等
 
 ### C 提高端口的扩展性(Port expansion)
@@ -43,12 +43,12 @@ USB2.0基础规格的学习记录，标准规格的第1-4章。
 相较于其他连接方式，因为端口常被被设计成一对一或一对二的优化，导致端口的可重用性不高，
     比如由于缺乏双向、低成本、中低速度的外设总线，
     导致诸如电话/传真/调制解调器适配器、答录机、扫描仪、PDA、键盘、鼠标等外设的连接受到了阻碍。
-现在，你可以通过新增[接口(interfaces)]，来非常容易的使这些设备可以工作起来。
+现在，你可以通过新增`[接口(interfaces)]`，来非常容易的使这些设备可以工作起来。
 
 ## 1.2 推动力
 
 为了适应电脑和设备的快速发展，比如个人电脑的处理能力和储存能力大幅提高，同时，PC外围设备也增加了更多的性能和功能。
-而且用户应用需要PC和这些日益复杂的外围设备之间更高性能的连接，比如[数字成像(digital imaging)]。
+而且用户应用需要PC和这些日益复杂的外围设备之间更高性能的连接，比如`[数字成像(digital imaging)]`。
 在USB1.0的1.5Mb/s和12Mb/s的基础上，新增USB2.0的480Mb/s的带宽，来满足这些需求。
 USB2.0可以称为USB1.0的自然演变，在提供所需的带宽增加的同时，保留USB的原始设计理念，并保持与现有外设的完全的兼容性。
 
@@ -56,22 +56,22 @@ USB2.0可以称为USB1.0的自然演变，在提供所需的带宽增加的同�
 
 从设计原则上来说，在今天和目前可预知的未来的时间尺度上，它仍然是PC与外部设备连接的答案。
 它是一种
-- [快速(fast)], 
-- [双向(bi-directional)], 
-- [支持同步(isochronous)], 
-- [低成本(low-cost)], 
-- [动态可连接(dynamically attachable)], 
-的[串行接口(serial interface)]
+- `[快速(fast)]`, 
+- `[双向(bi-directional)]`, 
+- `[支持同步(isochronous)]`, 
+- `[低成本(low-cost)]`, 
+- `[动态可连接(dynamically attachable)]`, 
+的`[串行接口(serial interface)]`
 
 ## 1.4 文档目的
 
 * 此规格的内容
     - 定义了一个业内标准的USB，包含
-        + [总线属性(the bus attributes)],
-        + [协议定义(the protocol definition)],
-        + [事务类型(types of transactions)],
-        + [总线管理(bus management)],
-    - 并且，设计和构建了符合该标准的系统和外设所需的[编程接口(the programming interface)]。
+        + `[总线属性(the bus attributes)]`,
+        + `[协议定义(the protocol definition)]`,
+        + `[事务类型(types of transactions)]`,
+        + `[总线管理(bus management)]`,
+    - 并且，设计和构建了符合该标准的系统和外设所需的`[编程接口(the programming interface)]`。
 * 此规格的目标
     - 使来自不同供应商的设备，能够在一个开放的体系结构中，相互进行通信。
     - 不光，增强PC架构，涵盖可移植、商务桌面和家庭环境。
@@ -79,7 +79,7 @@ USB2.0可以称为USB1.0的自然演变，在提供所需的带宽增加的同�
 
 ## 1.5 文档范围
 
-最主要的设计目标时，针对[外设开发人员(peripheral developers)]和[系统oem(system OEMs)]，
+最主要的设计目标时，针对`[外设开发人员(peripheral developers)]`和`[系统oem(system OEMs)]`，
 同时也可以为，平台操作系统/BIOS/设备(驱动,适配器ihv/isv,平台)/适配器的控制器供应商等，提供了有价值的信息。
 也就是说，此文档可用于开发新产品及其相关软件的参考资料。
 
@@ -131,12 +131,12 @@ USB被设计为PC架构扩展部分的行业标准，专注针对消费者和商
 * Full backward compatibility of USB 2.0 for devices built to previous versions of the specification.
 
 ## 3.2 USB支持的应用
-按应用所需的负载支持来[分类(Taxonomy)]，可以分为，低速/全速/高速，他们分别支持的应用及对应的功能属性(attributes)，可以见下图
+按应用所需的负载支持来`[分类(Taxonomy)]`，可以分为，低速/全速/高速，他们分别支持的应用及对应的`[功能属性(attributes)]`，可以见下图
 
 ![Application Space Taxonomy](/image/USB/application_space_taxonomy.png "Fig.3.2-1")
 
 ## 3.3 USB支持的特性
-按特性产生的收益效果来![分类(categorized)]，如下
+按特性产生的收益效果来`[分类(categorized)]`，如下
 * Easy to use for end user
     - Single model for cabling and connectors
     - Electrical details isolated from end user (e.g., bus terminations)
@@ -184,12 +184,12 @@ The bus allows peripherals to be attached, configured, used, and detached while 
 
 * USB系统的组成
     - A 连接，USB interconnect
-        + [总线模型(Bus Topology)]：设备和主机的连接模型.
-        + [层级模型(Inter-layer Relationships)]:
+        + `[总线模型(Bus Topology)]`：设备和主机的连接模型.
+        + `[层级模型(Inter-layer Relationships)]`:
             In terms of a capability stack, the USB tasks that are performed at each layer in the system.
-        + [数据模型(Data Flow Models)]:
+        + `[数据模型(Data Flow Models)]`:
             The manner in which data moves in the system over the USB between producers and consumers.
-        + [时序模型(USB Schedule)]:
+        + `[时序模型(USB Schedule)]`:
             The USB provides a shared interconnect. 
             Access to the interconnect is scheduled in order to support isochronous data transfers and to eliminate arbitration overhead.
     - B 设备，USB devices
@@ -199,7 +199,7 @@ The bus allows peripherals to be attached, configured, used, and detached while 
 
 ### 4.1.1 [总线模型(Bus Topology)]
 
-USB连接设备和主机，USB的物理连接是一个分层的星形拓扑。每一层中的[集线器(Hub)]，是这一层的中心。
+USB连接设备和主机，USB的物理连接是一个分层的星形拓扑。每一层中的`[集线器(Hub)]`，是这一层的中心。
 每根线段的两端连接着，主机 与 集线器/功能，集线器 与 集线器/功能。互联模型参考下图。
 
 ![USB Bus Topology](/image/USB/bus_topology.png "Fig.4.1.1-1")
@@ -215,8 +215,8 @@ USB连接设备和主机，USB的物理连接是一个分层的星形拓扑。�
     - 更多信息可以参考第4.9节和第10章
 * 关于设备
     - 通常集线器和功能都被称为USB设备
-        + [集线器(hub)]用来提供USB端口
-        + [功能(Functions)]用来附加一些实际的[能力(capabilities)]，到USB系统中
+        + `[集线器(hub)]`用来提供USB端口
+        + `[功能(Functions)]`用来附加一些实际的`[能力(capabilities)]`，到USB系统中
     - 在以下方面，需要提供标准的USB接口
         + 对USB协议的理解上
         + 对标准USB的操作的响应上
@@ -229,7 +229,7 @@ USB连接设备和主机，USB的物理连接是一个分层的星形拓扑。�
 
 ![USB Cable](/image/USB/cable.png "Fig.4.2-1")
 
-* [电气特性(Electrical)]
+* `[电气特性(Electrical)]`
     - 速度
         + 速度分为480/12/1.5 Mb/s
         + host和hub提供这样的功能，hub和设备之间的低速和全速数据，可以在host和hub之间以高速数据传输，减少高速设备可用带宽的影响
@@ -243,7 +243,7 @@ USB连接设备和主机，USB的物理连接是一个分层的星形拓扑。�
         + [偏置电压终端(biased terminations)]
         + 检测连接和分离
         + 可区分 高速/全速/低速 设备
-* [机械特性(Mechanical)]
+* `[机械特性(Mechanical)]`
     - 力学指标见第6章
     - USB传输信号使用4根导体，标准的双绞线信号对，和规格允许的电源对
     - 所有设备具有上游连接，上下游不能机械的互换，以消除集线器上的非法环回连接
@@ -264,18 +264,18 @@ USB连接设备和主机，USB的物理连接是一个分层的星形拓扑。�
 ## 4.4 总线协议
 
 * USB总线是轮询类型的，所有的传输都是由主机控制器启动的
-    - 大多数的事务(transaction)，涉及最多由3类包(packet)的组成，
-        + 一般，主机按照计划发出一个，带有描述这个事务的类型和方向，并带有指定设备地址以及端口编号信息的包，就表示事务的开始，我们称为令牌包(token packet)。
+    - 大多数的`[事务(transaction)]`，涉及最多由3类`[包(packet)]`的组成，
+        + 一般，主机按照计划发出一个，带有描述这个事务的类型和方向，并带有指定设备地址以及端口编号信息的包，就表示事务的开始，我们称为`[令牌包(token packet)]`。
         + 然后，设备根据地址选择自己以响应令牌包。
-        + 接着，会有一个数据包(data packet)被发出，设备发给主机还是主机发给设备，由令牌包中的信息决定。
+        + 接着，会有一个`[数据包(data packet)]`被发出，设备发给主机还是主机发给设备，由令牌包中的信息决定。
         + 其中，事务源会在传输结束时，发送一个0长度的数据包，表示数据的结束。
-        + 最后，事务目的地通常会在收到数据包后回应一个握手包(handshake packet)，来表示自己确实收下了数据，或者出现了其他状况。
+        + 最后，事务目的地通常会在收到数据包后回应一个`[握手包(handshake packet)]`，来表示自己确实收下了数据，或者出现了其他状况。
     - 主机和集线器之间的事务，可能会涉及4类包的组成，用于管理主机和全速/低速设备的通信
-    - 通常将主机上的源或目的地，和设备上的端点，之间的传输模型称为管道(pipe)，管道有两种类型
-        + 流(stream)， 他的结构由其他规格定义
-        + 消息(message)，他的结构由本规格定义
+    - 通常将主机上的源或目的地，和设备上的端点，之间的传输模型称为`[管道(pipe)]`，管道有两种类型
+        + `[流(stream)]`， 他的结构由其他规格定义
+        + `[消息(message)]`，他的结构由本规格定义
             + 有一个默认的消息管道在设备上电之后就会存在，以便提供对设备的配置/状态/控制等信息的访问
-        + 管道常与 数据带宽/传输服务的类型/端点(endpoint)特性(比如方向性/缓冲大小) 等，密切相关
+        + 管道常与 数据带宽/传输服务的类型/`[端点(endpoint)]`特性(比如方向性/缓冲大小) 等，密切相关
         + 通常，在USB设备被配置好之后，我们就可以说管道建立已经完成
         + 事务调度允许对流的管道进行流量控制。
             + 这可以从硬件级别实现，比如通过返回NAK握手包来限制速率，来防止缓冲区溢出或不足，当NAK结束时，主机就可以在总线空闲时重试事务。
@@ -319,20 +319,20 @@ As an example, a given USB device could have an endpoint that supports a pipe fo
 and another endpoint that supports a pipe for transporting data from the USB device.
 
 * 基础的传输类型有以下几种
-    - 控制信息传输(Control Transfers)
+    - `[控制信息传输(Control Transfers)]`
         + Used to configure a device at attach time and can be used for other device-specific purposes, including control of other pipes on the device.
         + 
-    - 批量数据传输(Bulk Data Transfers)
+    - `[批量数据传输(Bulk Data Transfers)]`
         + Generated or consumed in relatively large and bursty quantities and have wide dynamic latitude in transmission constraints.
         + 
-    - 中断数据传输(Interrupt Data Transfers)
+    - `[中断数据传输(Interrupt Data Transfers)]`
         + Used for timely but reliable delivery of data, for example, characters or coordinates with human-perceptible echo or feedback response characteristics.
         + 
-    - 同步数据传输(Isochronous Data Transfers)
+    - `[同步数据传输(Isochronous Data Transfers)]`
         + Occupy a pre-negotiated amount of USB bandwidth with a pre-negotiated delivery latency. (Also called streaming real time transfers).
         + 
     - 一个管道在被配置后，只能是以上几种的一种传输方式
-    - 分配数据带宽(Allocating USB Bandwidth)
+    - `[分配数据带宽(Allocating USB Bandwidth)]`
         + 带宽总是和管道相关联的，只要管道被建立，就会给它分配带宽
         + 设备通常需要提供一些缓冲区给数据，缓冲区越大，所需要的带宽就越大
         + USB架构的目标会确保缓冲引起的硬件延迟限制要在几毫秒之内
@@ -346,18 +346,18 @@ USB devices are required to carry information for self-identification and generi
 They are also required at all times to display behavior consistent with defined USB device states.
 
 * 设备特征
-    - 所有的设备在插入检测(attached)和被枚举好(enumerated)之后，都会被分配一个地址
+    - 所有的设备在`[插入检测(attached)]`和被`[枚举好(enumerated)]`之后，都会被分配一个地址
     - 每个设备都可以支持多个管道，数量取决于主机会有多少种与设备的通信模型
     - 所有的设备必须支持能与端点0建立管道的通信，以及实现一个通用的的状态机模型来支持控制传输
-    - 端点0上的控制信息，也称为请求(request)，分为以下几类
-        + 标准(standard)
+    - 端点0上的控制信息，也称为`[请求(request)]`，分为以下几类
+        + `[标准(standard)]`
             + 标准请求，具体详见第9章
-        + 类(class)
+        + `[类(class)]`
             + 类请求，具体与设备实现的功能相关
-        + 厂商(USB Vendor)
+        + `[厂商(USB Vendor)]`
             + 厂商请求由厂商定义，本规格不定义
 * 设备描述
-    - 有两种主要版本的设备类存在，集线器和功能，只有hub可以提供让其他设备插入的端口，function只提供一些能力(capabilities)给主机
+    - 有两种主要版本的设备类存在，集线器和功能，只有hub可以提供让其他设备插入的端口，function只提供一些`[能力(capabilities)]`给主机
     - hubs
     ~~~
         Hubs are a key element in the plug-and-play architecture of the USB. Figure 4-3 shows a typical hub. Hubs
