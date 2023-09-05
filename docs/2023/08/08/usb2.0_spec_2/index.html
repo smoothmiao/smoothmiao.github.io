@@ -15,7 +15,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://smoothmiao.github.io/image/USB/implementation_areas.png">
 <meta property="article:published_time" content="2023-08-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-08-09T03:07:51.402Z">
+<meta property="article:modified_time" content="2023-08-09T05:46:25.871Z">
 <meta property="article:author" content="smoothmiao">
 <meta property="article:tag" content="USB2.0">
 <meta name="twitter:card" content="summary">
@@ -117,12 +117,30 @@
 </ul>
 </li>
 </ul>
-<p><img src="/image/USB/implementation_areas.png" alt="实现分类" title="Fig.5.1-1"></p>
-
+<p><img src="/image/USB/implementation_areas.png" alt="实现分类" title="Fig.5.1-1"><br>上图描述了，USB设备和主机交互过程中，层级之间和实体之间的关系</p>
+<ul>
+<li>To describe and manage USB communication, the following concepts are important:<ul>
+<li>Bus Topology:<br>  Section  5.2 presents the primary physical and logical components of the USB and how they interrelate.</li>
+<li>Communication Flow Models:<br>  Sections 5.3 through 5.8 describe how communication flows between the host and devices through the USB and defines the four USB transfer types.</li>
+<li>Bus Access Management:<br>  Section  5.11 describes how bus access is managed within the host to support a broad range of communication flows by USB devices.</li>
+<li>Special Consideration for Isochronous Transfers:<br>  Section  5.12 presents features of the USB specific to devices requiring isochronous data transfers.<br>  Device implementers for non-isochronous devices do not need to read Section 5.12</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-2-总线拓扑结构"><a href="#5-2-总线拓扑结构" class="headerlink" title="5.2 总线拓扑结构"></a>5.2 总线拓扑结构</h2><ul>
+<li>There are four main parts to USB topology:<ul>
+<li>Host and Devices:<br>  The primary components of a USB system</li>
+<li>Physical Topology:<br>  How USB elements are connected</li>
+<li>Logical Topology:<br>  The roles and responsibilities of the various USB elements and how the USB appears from the perspective of the host and a device</li>
+<li>Client Software-to-function Relationships:<br>  How client software and its related function interfaces on a USB device view each other</li>
+</ul>
+</li>
+</ul>
+<h3 id="从主机的角度看"><a href="#从主机的角度看" class="headerlink" title="从主机的角度看"></a>从主机的角度看</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://smoothmiao.github.io/2023/08/08/usb2.0_spec_2/" data-id="cll36em3t0006ec3w8ak0ctx1" data-title="USB2.0基础规格(二)" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://smoothmiao.github.io/2023/08/08/usb2.0_spec_2/" data-id="clm5xk3fu00032s3w8e4zh59m" data-title="USB2.0基础规格(二)" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -166,7 +184,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitPage/" rel="tag">GitPage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/" rel="tag">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/USB2-0/" rel="tag">USB2.0</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitPage/" rel="tag">GitPage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/" rel="tag">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/USB2-0/" rel="tag">USB2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a></li></ul>
     </div>
   </div>
 
@@ -176,7 +194,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/GitPage/" style="font-size: 10px;">GitPage</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/USB2-0/" style="font-size: 20px;">USB2.0</a>
+      <a href="/tags/GitPage/" style="font-size: 10px;">GitPage</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/USB2-0/" style="font-size: 20px;">USB2.0</a> <a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 10px;">杂谈</a>
     </div>
   </div>
 
@@ -185,7 +203,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li></ul>
     </div>
   </div>
 
@@ -196,6 +214,10 @@
     <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2023/09/05/conception/">conception</a>
+          </li>
         
           <li>
             <a href="/2023/08/08/ssh/">ssh</a>
