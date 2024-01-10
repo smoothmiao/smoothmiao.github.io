@@ -22,9 +22,26 @@ ssh(Secure Shell)[安全外壳]
 
 
 # ssh的产生
+ssh key-gen
 
+# ssh 的config 文件
+在 /usr/.ssh/config 中配置可以访问的主机
+通过 ssh hostname 来访问
 
-# ssh在git
+典型的配置项如下
 
+Host [name]
+	HostName 172.21.2.160
+	User sonix
+	Port 22
+	HostKeyAlgorithms +ssh-rsa
+	PubkeyAcceptedKeyTypes +ssh-rsa
+	IdentityFile C:\Users\[user]\.ssh\[name]_rsa
 
-# ssh在svn
+此时访问可直接使用
+ ssh [name]
+
+通过 -vNTL 转发其他端口数据
+
+eg: ssh -vNTL 8080:192.168.37.1:80 [name]
+
